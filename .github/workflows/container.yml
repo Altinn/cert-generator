@@ -1,4 +1,5 @@
 name: Build from Dockerfile
+permissions: write-all
 on:
   push:
   pull_request:
@@ -9,7 +10,6 @@ jobs:
   build:
     name: Build image
     runs-on: ubuntu-latest
-    permissions: write-all
     env:
       IMAGE_NAME: cert-generator
       REGISTRY: ghcr.io/altinn
