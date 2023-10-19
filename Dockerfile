@@ -1,14 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build
 MAINTAINER Bengt Fredh <brf@digdir.no>
 
+COPY src/cert-generator ./cert-generator
+WORKDIR cert-generator/
 
-RUN git clone https://github.com/Altinn/cert-generator.git && cd cert-generator && \
-    dotnet build Generator.sln
+RUN dotnet build cert-generator.csproj -o /app_output
 
-FROM mcr.microsoft.com/dotnet/aspnet:3.1-alpine AS final
+FROM mcr.microsoft.com/dotnet/runtime:7.0-alpine AS final
 MAINTAINER Bengt Fredh <brf@digdir.no>
 
-COPY --from=build cert-generator/src/cert-generator/bin/Debug/netcoreapp3.1/* /usr/local/bin/
+COPY --from=build /app_output /usr/local/bin/
 
 WORKDIR /data
 VOLUME /data
