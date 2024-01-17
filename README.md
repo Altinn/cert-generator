@@ -10,4 +10,4 @@ A simple utility for creating "valid" TLS certificates for use in internal commu
 The utility is not a substitute for a PKI management system. There are **NO SUPPORT** for revoking certificates or certificate transparency. 
 
 ## Implementation
-The utility is written using .NET Core.
+The utility is written using .NET Core. 
