@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
 MAINTAINER Bengt Fredh <brf@digdir.no>
 
 COPY src/cert-generator ./cert-generator
