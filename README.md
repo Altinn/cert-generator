@@ -1,3 +1,6 @@
+# Archived
+This utility is no longer in use and hence it is archived. 
+
 # Cert Generator
 A simple utility for creating "valid" TLS certificates for use in internal communication scenarios. 
 
